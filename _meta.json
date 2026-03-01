@@ -1,0 +1,8 @@
+{
+  "name": "codeflicker",
+  "version": "1.0.0",
+  "description": "CodeFlicker CLI 编程助手 - 安装、配置、使用 CodeFlicker 写代码",
+  "author": "QingQing",
+  "homepage": "https://github.com/LeeGoDamn/codeflicker-skill",
+  "tags": ["codeflicker", "cli", "ai", "coding", "programming"]
+}
