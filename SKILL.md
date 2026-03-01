@@ -27,6 +27,12 @@ npm install -g @ks-codeflicker/cli
 flickcli /login
 ```
 
+### Step 4: Create workspace directory (recommended)
+
+```bash
+mkdir -p ~/workspace
+```
+
 Check installation:
 ```bash
 flickcli --version
@@ -34,12 +40,23 @@ flickcli --version
 
 ## Config
 
-View config:
+### Workspace Setup (Recommended)
+
+Create a workspace directory for codeflicker to use as project base:
+
+```bash
+mkdir -p ~/workspace
+cd ~/workspace
+```
+
+Codeflicker will look for projects and create new ones in this directory.
+
+### View config:
 ```bash
 flickcli config list -g
 ```
 
-Set config (global):
+### Set config (global):
 ```bash
 flickcli config set -g model glm-5
 flickcli config set -g smallModel claude-haiku-4.5
@@ -60,12 +77,15 @@ Approval modes:
 
 ## Usage
 
-Interactive mode:
+### Interactive mode
+
 ```bash
-flickcli "write a hello world"
+# Run in workspace directory
+cd ~/workspace
+flickcli "create a new react project"
 ```
 
-Quiet mode (non-interactive):
+### Quiet mode (non-interactive):
 ```bash
 flickcli -q "implement fibonacci"
 ```
@@ -99,4 +119,5 @@ flickcli --cwd /path/to/project "task"
 
 - Install requires Kuaishou internal npm registry
 - **Must login with SSO before first use:** `flickcli /login`
+- **Recommended: Create ~/workspace directory** for project base
 - yolo mode auto-executes all operations

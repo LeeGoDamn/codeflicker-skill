@@ -75,7 +75,13 @@ export npm_config_registry="https://npm.corp.kuaishou.com"
 npm install -g @ks-codeflicker/cli
 ```
 
-### 3. Login with SSO
+### 3. Create workspace directory (recommended)
+
+```bash
+mkdir -p ~/workspace
+```
+
+### 4. Login with SSO
 
 ```bash
 flickcli /login
