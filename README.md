@@ -39,7 +39,7 @@ When OpenClaw needs to perform development tasks:
 # Check if flickcli is available
 if which flickcli >/dev/null 2>&1; then
     # Use flickcli with --cwd
-    flickcli -q --cwd ~/workspace "开发任务描述"
+    flickcli -q --cwd ~/work "开发任务描述"
 fi
 ```
 
@@ -113,7 +113,7 @@ npm install -g @ks-codeflicker/cli
 ### 3. Create workspace directory (recommended)
 
 ```bash
-mkdir -p ~/workspace
+mkdir -p ~/work
 ```
 
 ### 4. Login with SSO

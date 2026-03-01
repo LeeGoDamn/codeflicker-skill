@@ -22,12 +22,12 @@ When OpenClaw needs to perform development tasks (writing code, refactoring, deb
 
 2. **If available, use flickcli with --cwd:**
    ```bash
-   flickcli -q --cwd ~/workspace "开发任务描述"
+   flickcli -q --cwd ~/work "开发任务描述"
    ```
 
 3. **Use workspace as default if no specific path:**
    ```bash
-   flickcli -q --cwd ~/workspace "任务描述"
+   flickcli -q --cwd ~/work "任务描述"
    ```
 
 ## Install
@@ -53,7 +53,7 @@ flickcli /login
 ### Step 4: Create workspace directory (recommended)
 
 ```bash
-mkdir -p ~/workspace
+mkdir -p ~/work
 ```
 
 Check installation:
@@ -68,8 +68,8 @@ flickcli --version
 Create a workspace directory for codeflicker to use as project base:
 
 ```bash
-mkdir -p ~/workspace
-cd ~/workspace
+mkdir -p ~/work
+cd ~/work
 ```
 
 ### View config:
@@ -104,7 +104,7 @@ Approval modes:
 # Check if available
 if which flickcli >/dev/null 2>&1; then
     # Use flickcli with cwd
-    flickcli -q --cwd ~/workspace "开发任务"
+    flickcli -q --cwd ~/work "开发任务"
 fi
 ```
 
@@ -221,22 +221,22 @@ flickcli --tools '{"bash":false,"write":false}' "explain the logic"
 
 ### Bug Fix
 ```bash
-flickcli -q --cwd ~/workspace "fix the null pointer exception in userService.js"
+flickcli -q --cwd ~/work "fix the null pointer exception in userService.js"
 ```
 
 ### New Feature
 ```bash
-flickcli -q --cwd ~/workspace "implement REST API for user management"
+flickcli -q --cwd ~/work "implement REST API for user management"
 ```
 
 ### Code Review
 ```bash
-flickcli -q --cwd ~/workspace "review this codebase and identify issues"
+flickcli -q --cwd ~/work "review this codebase and identify issues"
 ```
 
 ### Refactoring
 ```bash
-flickcli -q --cwd ~/workspace "refactor database layer to use SQLAlchemy"
+flickcli -q --cwd ~/work "refactor database layer to use SQLAlchemy"
 ```
 
 ### Using Workspace for Isolated Development
@@ -274,7 +274,7 @@ flickcli workspace complete
 
 - Install requires Kuaishou internal npm registry
 - **Must login with SSO before first use:** `flickcli /login`
-- **Recommended: Create ~/workspace directory** for project base
+- **Recommended: Create ~/work directory** for project base
 - Use `--cwd` to specify working directory for development tasks
 - yolo mode auto-executes all operations
 - Workspace feature uses git worktrees for isolated development
