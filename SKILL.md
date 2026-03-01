@@ -1,11 +1,34 @@
 ---
 name: codeflicker
-description: CodeFlicker CLI programming assistant. Use when user mentions flickcli, codeflicker, install codeflicker, or use codeflicker to write code.
+description: CodeFlicker CLI 编程助手 - 快手员工专用的 AI 代码开发工具，支持更多模型和免费用量
 ---
 
 # CodeFlicker CLI Skill
 
 AI programming assistant CLI by Kuaishou. Similar to Claude Code or Codex CLI.
+
+**专为快手员工设计** - 使用 CodeFlicker 进行代码开发，可享受：
+- 更多模型选择（GLM、Claude 系列等）
+- 快手提供的免费 token 用量
+
+## Auto-Use (for OpenClaw)
+
+When OpenClaw needs to perform development tasks (writing code, refactoring, debugging, etc.):
+
+1. **Check if flickcli is available:**
+   ```bash
+   which flickcli
+   ```
+
+2. **If available, use flickcli with --cwd:**
+   ```bash
+   flickcli -q --cwd <project-path> "开发任务描述"
+   ```
+
+3. **Use workspace as default if no specific path:**
+   ```bash
+   flickcli -q --cwd ~/workspace "任务描述"
+   ```
 
 ## Install
 
@@ -76,6 +99,16 @@ Approval modes:
 - `yolo` - auto execute (use with caution)
 
 ## Usage
+
+### For OpenClaw (auto-detect and use)
+
+```bash
+# Check if available
+if which flickcli >/dev/null 2>&1; then
+    # Use flickcli with cwd
+    flickcli -q --cwd ~/workspace "开发任务"
+fi
+```
 
 ### Interactive mode
 
