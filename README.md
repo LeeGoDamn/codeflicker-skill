@@ -12,6 +12,10 @@ AI programming assistant skill for OpenClaw. Integrates with CodeFlicker CLI by 
 - Set approval mode (default, autoEdit, yolo)
 - Continue sessions
 - Auto-use from OpenClaw with --cwd support
+- **Workspace** - Git worktree based isolated development
+- **Run** - Natural language to shell command
+- **MCP** - MCP server management
+- **Skills** - Skill management system
 
 ## Installation
 
@@ -68,6 +72,22 @@ codeflicker/scripts/config.sh list
 
 ```bash
 codeflicker/scripts/continue.sh "add unit tests"
+```
+
+### ⭐ Workspace (Git Worktree)
+
+```bash
+# Create isolated development workspace
+flickcli workspace create --name feature-x
+
+# List workspaces
+flickcli workspace list
+
+# Complete and merge
+flickcli workspace complete
+
+# Delete without merge
+flickcli workspace delete <name>
 ```
 
 ## Requirements

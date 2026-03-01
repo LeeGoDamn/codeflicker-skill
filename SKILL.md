@@ -22,7 +22,7 @@ When OpenClaw needs to perform development tasks (writing code, refactoring, deb
 
 2. **If available, use flickcli with --cwd:**
    ```bash
-   flickcli -q --cwd <project-path> "开发任务描述"
+   flickcli -q --cwd ~/workspace "开发任务描述"
    ```
 
 3. **Use workspace as default if no specific path:**
@@ -72,8 +72,6 @@ mkdir -p ~/workspace
 cd ~/workspace
 ```
 
-Codeflicker will look for projects and create new ones in this directory.
-
 ### View config:
 ```bash
 flickcli config list -g
@@ -110,15 +108,14 @@ if which flickcli >/dev/null 2>&1; then
 fi
 ```
 
-### Interactive mode
+### Basic Commands
 
+Interactive mode:
 ```bash
-# Run in workspace directory
-cd ~/workspace
 flickcli "create a new react project"
 ```
 
-### Quiet mode (non-interactive):
+Quiet mode (non-interactive):
 ```bash
 flickcli -q "implement fibonacci"
 ```
@@ -138,6 +135,126 @@ Specify working directory:
 flickcli --cwd /path/to/project "task"
 ```
 
+### ⭐ Workspace (Git Worktree)
+
+Isolated development using git worktrees:
+
+```bash
+# Create new workspace with random name
+flickcli workspace create
+
+# Create with custom name
+flickcli workspace create --name feature-login
+
+# Create from specific branch
+flickcli workspace create -b develop
+
+# List all workspaces
+flickcli workspace list
+
+# Complete and merge (run from repo root)
+flickcli workspace complete
+
+# Delete without merging
+flickcli workspace delete <name>
+flickcli workspace delete <name> --force  # even with uncommitted changes
+```
+
+### Run (Natural Language to Shell)
+
+Interactive shell command generator:
+```bash
+flickcli run
+# Then type: "list all files modified today"
+# Press Enter to generate command
+# Press Enter again to execute, Ctrl+C to cancel
+```
+
+### Skills Management
+
+```bash
+# Add skill from GitHub
+flickcli skill add user/repo
+
+# Add globally
+flickcli skill add -g user/repo
+
+# List skills
+flickcli skill list
+
+# Remove skill
+flickcli skill remove <name>
+```
+
+### MCP Servers
+
+```bash
+# Add MCP server
+flickcli mcp add my-server npx @example/mcp-server
+
+# List MCP servers
+flickcli mcp list
+
+# Remove MCP server
+flickcli mcp remove my-server
+```
+
+### View Session Logs
+
+```bash
+flickcli log
+flickcli log /path/to/logfile
+```
+
+### Tools Control
+
+Enable/disable specific tools:
+```bash
+# Disable write tool (read-only mode)
+flickcli --tools '{"write":false}' "analyze this code"
+
+# Disable bash and write (safe mode)
+flickcli --tools '{"bash":false,"write":false}' "explain the logic"
+```
+
+## Common Workflows
+
+### Bug Fix
+```bash
+flickcli -q --cwd ~/workspace "fix the null pointer exception in userService.js"
+```
+
+### New Feature
+```bash
+flickcli -q --cwd ~/workspace "implement REST API for user management"
+```
+
+### Code Review
+```bash
+flickcli -q --cwd ~/workspace "review this codebase and identify issues"
+```
+
+### Refactoring
+```bash
+flickcli -q --cwd ~/workspace "refactor database layer to use SQLAlchemy"
+```
+
+### Using Workspace for Isolated Development
+```bash
+# 1. Create isolated workspace
+flickcli workspace create --name feature-payment
+
+# 2. Work in the workspace directory
+cd .codeflicker-workspaces/feature-payment
+
+# 3. Do your work with flickcli
+flickcli -q "implement payment API"
+
+# 4. Return to root and complete
+cd <repository-root>
+flickcli workspace complete
+```
+
 ## Quick Reference
 
 | Command | Description |
@@ -146,11 +263,18 @@ flickcli --cwd /path/to/project "task"
 | `flickcli -q "task"` | Quiet mode |
 | `flickcli -q -c "task"` | Continue session |
 | `flickcli -q -r <id> "task"` | Resume session |
+| `flickcli -q --cwd /path "task"` | Run in specific directory |
 | `flickcli config set -g approvalMode yolo` | Auto-execute mode |
+| `flickcli workspace create` | Create git worktree |
+| `flickcli workspace complete` | Merge workspace |
+| `flickcli run` | Natural language to shell |
+| `flickcli skill add user/repo` | Add skill |
 
 ## Notes
 
 - Install requires Kuaishou internal npm registry
 - **Must login with SSO before first use:** `flickcli /login`
 - **Recommended: Create ~/workspace directory** for project base
+- Use `--cwd` to specify working directory for development tasks
 - yolo mode auto-executes all operations
+- Workspace feature uses git worktrees for isolated development
