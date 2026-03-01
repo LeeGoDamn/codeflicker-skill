@@ -13,7 +13,12 @@ AI programming assistant skill for OpenClaw. Integrates with CodeFlicker CLI by 
 ## Installation
 
 ```bash
-# Install skill
+# Install via ClawHub
+clawhub install codeflicker
+```
+
+Or clone from GitHub:
+```bash
 git clone https://github.com/LeeGoDamn/codeflicker-skill.git
 ```
 
