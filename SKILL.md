@@ -9,8 +9,22 @@ AI programming assistant CLI by Kuaishou. Similar to Claude Code or Codex CLI.
 
 ## Install
 
+### Step 1: Set npm registry (for Kuaishou internal network)
+
+```bash
+export npm_config_registry="https://npm.corp.kuaishou.com"
+```
+
+### Step 2: Install CLI
+
 ```bash
 npm install -g @ks-codeflicker/cli
+```
+
+### Step 3: Login with SSO
+
+```bash
+flickcli /login
 ```
 
 Check installation:
@@ -83,6 +97,6 @@ flickcli --cwd /path/to/project "task"
 
 ## Notes
 
-- Install may require Kuaishou internal npm registry
-- First use requires login: `flickcli /login`
+- Install requires Kuaishou internal npm registry
+- **Must login with SSO before first use:** `flickcli /login`
 - yolo mode auto-executes all operations

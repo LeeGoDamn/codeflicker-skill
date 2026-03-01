@@ -59,7 +59,27 @@ codeflicker/scripts/continue.sh "add unit tests"
 
 - Node.js >= 22
 - npm or pnpm
-- CodeFlicker CLI (`npm install -g @ks-codeflicker/cli`)
+- Kuaishou internal network access
+
+## Installation Steps
+
+### 1. Set npm registry (Kuaishou internal network)
+
+```bash
+export npm_config_registry="https://npm.corp.kuaishou.com"
+```
+
+### 2. Install CLI
+
+```bash
+npm install -g @ks-codeflicker/cli
+```
+
+### 3. Login with SSO
+
+```bash
+flickcli /login
+```
 
 ## License
 
